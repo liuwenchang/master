@@ -9,29 +9,15 @@
         xmlns:materialDesignConverters="clr-namespace:MaterialDesignThemes.Wpf.Converters;assembly=MaterialDesignThemes.Wpf"
         xmlns:local="clr-namespace:ZhangJianTaoProj"
         mc:Ignorable="d"
-        Title="设备诊断" Height="350" Width="525">
-    <Controls:MetroWindow.RightWindowCommands>
-        <Controls:WindowCommands>
-            <Button Content="settings" />
-            <Button>
-                <StackPanel Orientation="Horizontal">
-                    <Rectangle Width="20"
-                   Height="20"
-                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
-                        <Rectangle.OpacityMask>
-                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_cupcake}" />
-                        </Rectangle.OpacityMask>
-                    </Rectangle>
-                    <TextBlock Margin="4 0 0 0"
-                   VerticalAlignment="Center"
-                   Text="deploy cupcakes" />
-                </StackPanel>
-            </Button>
-        </Controls:WindowCommands>
-    </Controls:MetroWindow.RightWindowCommands>
+        Icon="Resources/Img/logo.ico"
+        ShowIconOnTitleBar="False"
+        ShowTitleBar="{Binding ShowMyTitleBar, Mode=OneWay}"
+        WindowStartupLocation="CenterScreen"
+        Title="" Height="600" Width="800" Closing="MetroWindow_Closing" Loaded="MetroWindow_Loaded" >
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Icons.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Themes/HamburgerMenuTemplate.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
@@ -180,76 +166,11 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
-
-        <ScrollViewer Grid.Column="1"
-                      MinWidth="230"
-                      Margin="10 10 5 10"
-                      Padding="0 0 5 0"
-                      HorizontalContentAlignment="Stretch"
-                      HorizontalScrollBarVisibility="Disabled">
-            <StackPanel Margin="0 0 0 10" Orientation="Vertical">
-                <Controls:ToggleSwitch Margin="0 10 0 5"
-                                       Header="IsPaneOpen:"
-                                       IsChecked="{Binding ElementName=HamburgerMenuControl, Path=IsPaneOpen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-
-                <Controls:MetroHeader Margin="0 10 0 5" Header="DisplayMode:">
-                    <ComboBox MinWidth="150"
-                              HorizontalAlignment="Left"
-                              ItemsSource="{Binding Source={StaticResource DisplayModeEnumValues}}"
-                              SelectedItem="{Binding ElementName=HamburgerMenuControl, Path=DisplayMode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                </Controls:MetroHeader>
-
-                <Controls:MetroHeader Margin="0 10 0 5" Header="SelectedIndex:">
-                    <Slider AutoToolTipPlacement="TopLeft"
-                            Maximum="3"
-                            Minimum="0"
-                            Value="{Binding ElementName=HamburgerMenuControl, Path=SelectedIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                </Controls:MetroHeader>
-
-                <Controls:MetroHeader Margin="0 10 0 5" Header="CompactPaneLength:">
-                    <Slider AutoToolTipPlacement="TopLeft"
-                            Maximum="80"
-                            Minimum="10"
-                            Value="{Binding ElementName=HamburgerMenuControl, Path=CompactPaneLength, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                </Controls:MetroHeader>
-
-                <Controls:MetroHeader Margin="0 10 0 5" Header="OpenPaneLength:">
-                    <Slider AutoToolTipPlacement="TopLeft"
-                            Maximum="400"
-                            Minimum="50"
-                            Value="{Binding ElementName=HamburgerMenuControl, Path=OpenPaneLength, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                </Controls:MetroHeader>
-
-                <Controls:MetroHeader Margin="0 10 0 5" Header="HamburgerVisibility:">
-                    <ComboBox MinWidth="150"
-                              HorizontalAlignment="Left"
-                              ItemsSource="{Binding Source={StaticResource VisibilityEnumValues}}"
-                              SelectedItem="{Binding ElementName=HamburgerMenuControl, Path=HamburgerVisibility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                </Controls:MetroHeader>
-
-                <Controls:MetroHeader Margin="0 10 0 5" Header="Hamburger Width / Height:">
-                    <UniformGrid Columns="2">
-                        <Slider Margin="0 0 5 0"
-                                AutoToolTipPlacement="TopLeft"
-                                Maximum="80"
-                                Minimum="10"
-                                Value="{Binding ElementName=HamburgerMenuControl, Path=HamburgerWidth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                        <Slider Margin="5 0 0 0"
-                                AutoToolTipPlacement="TopLeft"
-                                Maximum="80"
-                                Minimum="10"
-                                Value="{Binding ElementName=HamburgerMenuControl, Path=HamburgerHeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                    </UniformGrid>
-                </Controls:MetroHeader>
-            </StackPanel>
-        </ScrollViewer>
-
         <Border Grid.Column="0"
-                Margin="10 10 0 10"
+                Margin="0,-30,0,0"
                 BorderBrush="{DynamicResource GrayBrush7}"
-                BorderThickness="1">
+                BorderThickness="0">
 
             <Controls:HamburgerMenu x:Name="HamburgerMenuControl"
                                     HamburgerWidth="48"
@@ -260,30 +181,42 @@
                                     SelectedIndex="0"
                                     Style="{StaticResource HamburgerMenuCreatorsStyle}"
                                     VerticalScrollBarOnLeftSide="False">
+                <!--  Header  -->
+                <Controls:HamburgerMenu.HamburgerMenuHeaderTemplate>
+                    <DataTemplate>
+                        <TextBlock HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   FontSize="16"
+                                   Foreground="Black"
+                                   Text="设备诊断" />
+                    </DataTemplate>
+                </Controls:HamburgerMenu.HamburgerMenuHeaderTemplate>
                 <!--  Items  -->
                 <Controls:HamburgerMenu.ItemsSource>
                     <Controls:HamburgerMenuItemCollection>
-                        <Controls:HamburgerMenuIconItem Icon="{iconPacks:Material Kind=Home}" Label="Home">
+                        <Controls:HamburgerMenuIconItem Icon="{iconPacks:Material Kind=Home}" Label="算法说明">
                             <Controls:HamburgerMenuIconItem.Tag>
                                 <local:HomeView />
                             </Controls:HamburgerMenuIconItem.Tag>
                         </Controls:HamburgerMenuIconItem>
-                        <Controls:HamburgerMenuIconItem Icon="{iconPacks:Material Kind=AccountCircle}" Label="Private">
+                        <Controls:HamburgerMenuIconItem Icon="{iconPacks:Material Kind=DatabasePlus}" Label="数据采集">
                             <Controls:HamburgerMenuIconItem.Tag>
                                 <local:PrivateView />
                             </Controls:HamburgerMenuIconItem.Tag>
                         </Controls:HamburgerMenuIconItem>
-                        <Controls:HamburgerMenuIconItem Icon="{iconPacks:Octicons Kind=Briefcase}" Label="Briefcase">
+                        <Controls:HamburgerMenuIconItem Icon="{iconPacks:Material Kind=ChartArc}" Label="数据分析与显示">
                             <Controls:HamburgerMenuIconItem.Tag>
-                                <UserControl>
-                                    <StackPanel Orientation="Vertical">
-                                        <Controls:ToggleSwitch Margin="0 0 0 5" Header="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
-                                        <Controls:ToggleSwitch Margin="0 0 0 5"
-                                                               Header="Ut dictum arcu egestas aliquet elementum"
-                                                               IsChecked="True" />
-                                        <Controls:ToggleSwitch Margin="0 0 0 5" Header="Pellentesque ultricies metus quis dui luctus, vel faucibus risus rhoncus" />
-                                    </StackPanel>
-                                </UserControl>
+                                <local:SettingsView />
+                            </Controls:HamburgerMenuIconItem.Tag>
+                        </Controls:HamburgerMenuIconItem>
+                        <Controls:HamburgerMenuIconItem Icon="{iconPacks:Material Kind=CrosshairsGps}" Label="超声定位">
+                            <Controls:HamburgerMenuIconItem.Tag>
+                                <local:PrivateView />
+                            </Controls:HamburgerMenuIconItem.Tag>
+                        </Controls:HamburgerMenuIconItem>
+                        <Controls:HamburgerMenuIconItem Icon="{iconPacks:Material Kind=File}" Label="打开数据文件">
+                            <Controls:HamburgerMenuIconItem.Tag>
+                                <local:HomeView />
                             </Controls:HamburgerMenuIconItem.Tag>
                         </Controls:HamburgerMenuIconItem>
                     </Controls:HamburgerMenuItemCollection>
@@ -292,10 +225,7 @@
                 <!--  Options  -->
                 <Controls:HamburgerMenu.OptionsItemsSource>
                     <Controls:HamburgerMenuItemCollection>
-                        <Controls:HamburgerMenuIconItem Icon="{iconPacks:Material Kind=Settings}" Label="Settings">
-                            <Controls:HamburgerMenuIconItem.Tag>
-                                <local:SettingsView />
-                            </Controls:HamburgerMenuIconItem.Tag>
+                        <Controls:HamburgerMenuIconItem Icon="{iconPacks:Material Kind=ExitToApp}" Label="退出">
                         </Controls:HamburgerMenuIconItem>
                     </Controls:HamburgerMenuItemCollection>
                 </Controls:HamburgerMenu.OptionsItemsSource>
@@ -303,19 +233,13 @@
                 
                 <Controls:HamburgerMenu.ContentTemplate>
                     <DataTemplate DataType="{x:Type Controls:HamburgerMenuIconItem}">
-                        <Grid Margin="20 0 10 0">
+                        <Grid Margin="0 30 0 0">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
                                 <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="0"
-                                       Margin="0 15 0 5"
-                                       Padding="0"
-                                       FontFamily="{DynamicResource HeaderFontFamily}"
-                                       FontSize="{DynamicResource HeaderFontSize}"
-                                       Text="{Binding Label}" />
-                            <ScrollViewer Grid.Row="1"
+                            <ScrollViewer Grid.Row="1" Margin="20,0,0,0"
                                           Focusable="False"
+                                          HorizontalAlignment="Center"
                                           HorizontalScrollBarVisibility="Disabled"
                                           VerticalScrollBarVisibility="Auto">
                                 <ContentControl Content="{Binding Tag}" Focusable="False" />
