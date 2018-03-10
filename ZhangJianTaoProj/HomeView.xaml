@@ -3,16 +3,43 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              d:DesignHeight="300"
              d:DesignWidth="300"
              mc:Ignorable="d">
-    <StackPanel>
-        <Image MaxWidth="800"
-               Margin="0 10 0 0"
-               HorizontalAlignment="Left"
-               VerticalAlignment="Top"
-               Source="Resources/Img/Home.jpg"
-               Stretch="Uniform" />
-        <TextBlock Text="Image from StockSnap.io" />
+    <UserControl.Resources>
+        <Style TargetType="{x:Type Image}">
+            <Setter Property="MaxWidth" Value="{Binding ElementName=stackPanel,Path=MaxWidth,Mode=OneWay }" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Stretch" Value="Uniform" />
+        </Style>
+    </UserControl.Resources>
+    <StackPanel x:Name="stackPanel" Margin="10 10 10 0">
+        <Controls:FlipView x:Name="FlipView1st"
+                               MaxWidth="800" IsBannerEnabled="False"
+                               Margin="0 0 5 0" CircularNavigation="True"
+                               Foreground="{DynamicResource WhiteBrush}"
+                               SelectionChanged="FlipView1st_SelectionChanged">
+            <Controls:FlipView.Items>
+                <Grid Background="#2E8DEF">
+                    <Image 
+               Source="Resources/Img/home_1.jpg" />
+                </Grid>
+                <Grid Background="#00A600">
+                    <Image 
+               Source="Resources/Img/home_2.jpg" />
+                </Grid>
+                <Grid Background="#BF1E4B">
+                    <Image 
+               Source="Resources/Img/home_3.jpg" />
+                </Grid>
+                <Grid Background="#BF1E4B">
+                    <Image 
+               Source="Resources/Img/home_4.jpg" />
+                </Grid>
+            </Controls:FlipView.Items>
+        </Controls:FlipView>
+        <TextBlock x:Name="content" TextWrapping="Wrap" LineHeight="20" FontSize="15" Text=" 华北电力大学高电压与绝缘技术研究所（输变电设备安全防御河北省重点实验室）主要从事电气设备在线监测及故障诊断技术以及高电压绝缘技术方面的研究，是既重视基础研究又与工程实际密切结合的产学研基地。研究所有教授4人、副教授6人、讲师8人和助教6人；全部具有硕士以上学位，其中具有博士学位14人、占总人数的50％；其平均年龄不足32岁；是一支学历层次高、年富力强、科研能力突出的优秀团队。目前在读博士生6名、在读硕士生55名。而且研究所现有价值870万元的实验设备，其中单台超过5万元的设备有10余台套，主要有450kV冲击电压发生器、400kV直流高压发生器、250kV无晕工频试验变压器、高精度LDS-6局部放电测试仪以及高速数字示波器等。研究人员主要从事高电压、强电流技术、绝缘技术、放电应用技术和过电压防护技术、电气设备在线监测与故障诊断技术等方面的研究、设计、制造及运行等工作。近年来，研究所承担了863、973、国家自然科学基金、国家电网公司等30余项科技项目，累计发表核心以上学术论文100余篇，其中SCI/EI收录35篇。共获授权发明专利11项、实用新型专利25项、软件著作权10余项，获得省部级以上奖励4项。" />
     </StackPanel>
 </UserControl>

@@ -69,15 +69,22 @@ namespace ZhangJianTaoProj
 
         private async void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            LoginDialogData result = await this.ShowLoginAsync("口令认证", "请输入您的用户口令", new LoginDialogSettings { ColorScheme = this.MetroDialogOptions.ColorScheme, ShouldHideUsername = true });
+            LoginDialogData result = await this.ShowLoginAsync("口令认证", "请输入您的用户口令", new LoginDialogSettings { NegativeButtonVisibility = Visibility.Visible, ColorScheme = this.MetroDialogOptions.ColorScheme, ShouldHideUsername = true });
+            if(result ==null)
+                Application.Current.Shutdown();
+            bool isCancel = false;
             while (true) {
-
-                    if (result.Password == "admin")
+                if (result == null)
+                {
+                    isCancel = true;
+                    break;
+                }
+                if (result.Password == "admin")
                         break;
-                    else
-                        result = await this.ShowLoginAsync("口令认证", "认证失败，请重新输入您的用户口令", new LoginDialogSettings { ColorScheme = this.MetroDialogOptions.ColorScheme, ShouldHideUsername = true });
+                result = await this.ShowLoginAsync("口令认证", "认证失败，请重新输入您的用户口令", new LoginDialogSettings { NegativeButtonVisibility = Visibility.Visible, ColorScheme = this.MetroDialogOptions.ColorScheme, ShouldHideUsername = true });
             }
-            return;
+            if(isCancel)
+                Application.Current.Shutdown();
         }
     }
 }

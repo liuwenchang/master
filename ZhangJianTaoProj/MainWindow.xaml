@@ -14,6 +14,24 @@
         ShowTitleBar="{Binding ShowMyTitleBar, Mode=OneWay}"
         WindowStartupLocation="CenterScreen"
         Title="" Height="600" Width="800" Closing="MetroWindow_Closing" Loaded="MetroWindow_Loaded" >
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button>
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20"
+                   Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_coupon}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock Margin="4 0 0 0"
+                   VerticalAlignment="Center"
+                   Text="输变电设备多局放源定位系统" />
+                </StackPanel>
+            </Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -188,33 +206,38 @@
                                    VerticalAlignment="Center"
                                    FontSize="16"
                                    Foreground="Black"
-                                   Text="设备诊断" />
+                                   Text="功能菜单" />
                     </DataTemplate>
                 </Controls:HamburgerMenu.HamburgerMenuHeaderTemplate>
                 <!--  Items  -->
                 <Controls:HamburgerMenu.ItemsSource>
                     <Controls:HamburgerMenuItemCollection>
-                        <Controls:HamburgerMenuIconItem Icon="{iconPacks:Material Kind=Home}" Label="算法说明">
+                        <Controls:HamburgerMenuIconItem Icon="{iconPacks:Material Kind=Home}" Label="首页">
                             <Controls:HamburgerMenuIconItem.Tag>
                                 <local:HomeView />
                             </Controls:HamburgerMenuIconItem.Tag>
                         </Controls:HamburgerMenuIconItem>
-                        <Controls:HamburgerMenuIconItem Icon="{iconPacks:Material Kind=DatabasePlus}" Label="数据采集">
+                        <Controls:HamburgerMenuIconItem Icon="{iconPacks:Material Kind=DatabasePlus}" Label="数据导入">
                             <Controls:HamburgerMenuIconItem.Tag>
                                 <local:PrivateView />
                             </Controls:HamburgerMenuIconItem.Tag>
                         </Controls:HamburgerMenuIconItem>
-                        <Controls:HamburgerMenuIconItem Icon="{iconPacks:Material Kind=ChartArc}" Label="数据分析与显示">
+                        <Controls:HamburgerMenuIconItem Icon="{iconPacks:Material Kind=Eraser}" Label="数据去噪">
                             <Controls:HamburgerMenuIconItem.Tag>
                                 <local:SettingsView />
                             </Controls:HamburgerMenuIconItem.Tag>
                         </Controls:HamburgerMenuIconItem>
-                        <Controls:HamburgerMenuIconItem Icon="{iconPacks:Material Kind=CrosshairsGps}" Label="超声定位">
+                        <Controls:HamburgerMenuIconItem Icon="{iconPacks:FontAwesome Kind=CompassRegular}" Label="测向">
+                            <Controls:HamburgerMenuIconItem.Tag>
+                                <local:SettingsView />
+                            </Controls:HamburgerMenuIconItem.Tag>
+                        </Controls:HamburgerMenuIconItem>
+                        <Controls:HamburgerMenuIconItem Icon="{iconPacks:Material Kind=CrosshairsGps}" Label="三维定位">
                             <Controls:HamburgerMenuIconItem.Tag>
                                 <local:PrivateView />
                             </Controls:HamburgerMenuIconItem.Tag>
                         </Controls:HamburgerMenuIconItem>
-                        <Controls:HamburgerMenuIconItem Icon="{iconPacks:Material Kind=File}" Label="打开数据文件">
+                        <Controls:HamburgerMenuIconItem Icon="{iconPacks:Material Kind=File}" Label="数据保存">
                             <Controls:HamburgerMenuIconItem.Tag>
                                 <local:HomeView />
                             </Controls:HamburgerMenuIconItem.Tag>
