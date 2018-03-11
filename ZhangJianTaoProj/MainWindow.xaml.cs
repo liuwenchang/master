@@ -14,7 +14,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using MathWorks.MATLAB.NET.Arrays;
+using MathWorks.MATLAB.NET.Utility;
+using zjtMatlab;
 namespace ZhangJianTaoProj
 {
     /// <summary>
@@ -25,6 +27,16 @@ namespace ZhangJianTaoProj
         public MainWindow()
         {
             InitializeComponent();
+            //MWArray x = @"C:\Users\liuxiaochang\Desktop\程序1\程序\位置1\003.dat";
+            //try
+            //{
+            //    NoiseReduce re = new NoiseReduce();
+            //    MWArray y = re.DoubleDataExp(x);
+            //    string str = y.ToString();
+            //}
+            //catch (Exception ex) {
+            //    string str = ex.ToString();
+            //}
         }
         private  void HamburgerMenuControl_OnItemInvoked(object sender, HamburgerMenuItemInvokedEventArgs e)
         {

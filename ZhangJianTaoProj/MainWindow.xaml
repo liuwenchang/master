@@ -224,7 +224,7 @@
                         </Controls:HamburgerMenuIconItem>
                         <Controls:HamburgerMenuIconItem Icon="{iconPacks:Material Kind=Eraser}" Label="数据去噪">
                             <Controls:HamburgerMenuIconItem.Tag>
-                                <local:SettingsView />
+                                <local:JiangZao />
                             </Controls:HamburgerMenuIconItem.Tag>
                         </Controls:HamburgerMenuIconItem>
                         <Controls:HamburgerMenuIconItem Icon="{iconPacks:FontAwesome Kind=CompassRegular}" Label="测向">

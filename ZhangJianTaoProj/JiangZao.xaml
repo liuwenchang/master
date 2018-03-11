@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="ZhangJianTaoProj.JiangZao"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             d:DesignHeight="300"
+             d:DesignWidth="300"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type Image}">
+            <Setter Property="MaxWidth" Value="{Binding ElementName=stackPanel,Path=MaxWidth,Mode=OneWay }" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Stretch" Value="Uniform" />
+        </Style>
+    </UserControl.Resources>
+    <StackPanel x:Name="stackPanel" Margin="10 10 10 0">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90px"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="openFile" Click="openFile_Click" Content="请选择数据文件" Grid.Column="0" Grid.Row="0"></Button>
+            <TextBlock x:Name="selectedFile" Grid.Column="1" Grid.Row="0" Text="文件尚未选择" Margin="20,0,0,0" ></TextBlock>
+        </Grid>
+        <Image x:Name="res1"  />
+        <Image x:Name="res2"  />
+    </StackPanel>
+</UserControl>
