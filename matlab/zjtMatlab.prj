@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration build-checksum="73182945" file="G:\zhangjiantaoPro\matlab\zjtMatlab.prj" location="G:\zhangjiantaoPro\matlab" name="zjtMatlab" preferred-package-location="G:\zhangjiantaoPro\matlab\zjtMatlab\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.library" target-name="Library Compiler">
+  <configuration build-checksum="2441673254" file="G:\zhangjiantaoPro\matlab\zjtMatlab.prj" location="G:\zhangjiantaoPro\matlab" name="zjtMatlab" preferred-package-location="G:\zhangjiantaoPro\matlab\zjtMatlab\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.library" target-name="Library Compiler">
     <param.appname>zjtMatlab</param.appname>
     <param.icon />
     <param.icons />
@@ -99,19 +99,28 @@
       <param.net.saved.interface />
     </unset>
     <fileset.exports>
+      <file>C:\Users\liuxiaochang\Desktop\程序1\程序\Direct.m</file>
+      <file>C:\Users\liuxiaochang\Desktop\程序1\程序\InputData.m</file>
       <file>C:\Users\liuxiaochang\Desktop\程序1\程序\去噪\DoubleDataExp.m</file>
       <file>C:\Users\liuxiaochang\Desktop\程序1\程序\去噪\W4Denoise.m</file>
+      <file>C:\Users\liuxiaochang\Desktop\程序1\程序\双源定位\Location.m</file>
     </fileset.exports>
     <fileset.classes>
       <entity.package name="">
         <entity.class name="NoiseReduce">
+          <file>C:\Users\liuxiaochang\Desktop\程序1\程序\Direct.m</file>
           <file>C:\Users\liuxiaochang\Desktop\程序1\程序\去噪\DoubleDataExp.m</file>
+          <file>C:\Users\liuxiaochang\Desktop\程序1\程序\InputData.m</file>
+          <file>C:\Users\liuxiaochang\Desktop\程序1\程序\双源定位\Location.m</file>
           <file>C:\Users\liuxiaochang\Desktop\程序1\程序\去噪\W4Denoise.m</file>
         </entity.class>
       </entity.package>
     </fileset.classes>
     <fileset.resources />
-    <fileset.depfun />
+    <fileset.depfun>
+      <file>C:\Users\liuxiaochang\Desktop\程序1\程序\双源定位\obf.m</file>
+      <file>C:\Users\liuxiaochang\Desktop\程序1\程序\双源定位\rectA.m</file>
+    </fileset.depfun>
     <fileset.package />
     <build-deliverables>
       <file location="${PROJECT_ROOT}\zjtMatlab\for_testing" name="zjtMatlab_overview.html" optional="false">G:\zhangjiantaoPro\matlab\zjtMatlab\for_testing\zjtMatlab_overview.html</file>

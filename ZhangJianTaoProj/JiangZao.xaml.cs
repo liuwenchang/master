@@ -15,6 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ZhangJianTaoProj.Model;
+using ZhangJianTaoProj.Provider;
 using zjtMatlab;
 
 namespace ZhangJianTaoProj
@@ -27,42 +29,23 @@ namespace ZhangJianTaoProj
         public JiangZao()
         {
             InitializeComponent();
+
         }
 
-        private async void openFile_Click(object sender, RoutedEventArgs e)
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog dialog = new OpenFileDialog();
-            bool? result = dialog.ShowDialog();
-            if (result == true)
+            if (CalcParamProvider.isHadCeXiangData)
             {
-                this.selectedFile.Text = dialog.FileName;
-                await calc(dialog.FileName);
+                ShowPic.imgA1 = CalcParamProvider.getMemroyImg(CalcParamProvider.totalModels[0].getImgPath(CalcParam.ModelType.JiangZao)[0]);
+                ShowPic.imgA2 = CalcParamProvider.getMemroyImg(CalcParamProvider.totalModels[0].getImgPath(CalcParam.ModelType.JiangZao)[1]);
+                ShowPic.imgB1 = CalcParamProvider.getMemroyImg(CalcParamProvider.totalModels[1].getImgPath(CalcParam.ModelType.JiangZao)[0]);
+                ShowPic.imgB2 = CalcParamProvider.getMemroyImg(CalcParamProvider.totalModels[1].getImgPath(CalcParam.ModelType.JiangZao)[1]);
+                ShowPic.imgC1 = CalcParamProvider.getMemroyImg(CalcParamProvider.totalModels[2].getImgPath(CalcParam.ModelType.JiangZao)[0]);
+                ShowPic.imgC2 = CalcParamProvider.getMemroyImg(CalcParamProvider.totalModels[2].getImgPath(CalcParam.ModelType.JiangZao)[1]);
             }
-        }
-        private async Task<bool> calc(string fileName)
-        {
-            
-            try
+            else
             {
-                NoiseReduce re = new NoiseReduce();
-                MWArray y = re.DoubleDataExp(fileName);
-                string str = y.ToString();
-                var img1 = new BitmapImage();
-                img1.BeginInit();
-                img1.StreamSource = new MemoryStream(File.ReadAllBytes(@"./jiangzao/1.jpg"));
-                img1.EndInit();
-                res1.Source = img1;
-                var img2 = new BitmapImage();
-                img2.BeginInit();
-                img2.StreamSource = new MemoryStream(File.ReadAllBytes(@"./jiangzao/2.jpg"));
-                img2.EndInit();
-                res2.Source = img2;
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Logger.Default.Error("降噪计算错误", ex);
-                return false;
+                ShowPic.clearPic();
             }
         }
     }

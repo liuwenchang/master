@@ -1,15 +1,30 @@
-mcc -W 'dotnet:zjtMatlab,NoiseReduce,0.0,private' -T link:lib -d G:\zhangjiantaoPro\matlab\zjtMatlab\for_testing -v 'class{NoiseReduce:C:\Users\liuxiaochang\Desktop\程序1\程序\去噪\DoubleDataExp.m,C:\Users\liuxiaochang\Desktop\程序1\程序\去噪\W4Denoise.m}' 
+mcc -W 'dotnet:zjtMatlab,NoiseReduce,0.0,private' -T link:lib -d G:\zhangjiantaoPro\matlab\zjtMatlab\for_testing -v 'class{NoiseReduce:C:\Users\liuxiaochang\Desktop\程序1\程序\Direct.m,C:\Users\liuxiaochang\Desktop\程序1\程序\去噪\DoubleDataExp.m,C:\Users\liuxiaochang\Desktop\程序1\程序\InputData.m,C:\Users\liuxiaochang\Desktop\程序1\程序\双源定位\Location.m,C:\Users\liuxiaochang\Desktop\程序1\程序\去噪\W4Denoise.m}' 
 Compiler version: 6.1 (R2015b)
 
 Dependency analysis by REQUIREMENTS.
 
-[警告: Adding path "C:\Users\liuxiaochang\Desktop\程序1\程序\去噪" to Compiler path
+[警告: Adding path "C:\Users\liuxiaochang\Desktop\程序1\程序" to Compiler path
 instance.] 
 [] 
 [警告: Adding path "C:\Users\liuxiaochang\Desktop\程序1\程序\去噪" to Compiler path
 instance.] 
 [] 
+[警告: Adding path "C:\Users\liuxiaochang\Desktop\程序1\程序" to Compiler path
+instance.] 
+[] 
+[警告: Adding path "C:\Users\liuxiaochang\Desktop\程序1\程序\双源定位" to Compiler
+path instance.] 
+[] 
+[警告: Adding path "C:\Users\liuxiaochang\Desktop\程序1\程序\去噪" to Compiler path
+instance.] 
+[] 
+Parsing file "C:\Users\liuxiaochang\Desktop\程序1\程序\Direct.m"
+	(Referenced from: "Compiler Command Line").
 Parsing file "C:\Users\liuxiaochang\Desktop\程序1\程序\去噪\DoubleDataExp.m"
+	(Referenced from: "Compiler Command Line").
+Parsing file "C:\Users\liuxiaochang\Desktop\程序1\程序\InputData.m"
+	(Referenced from: "Compiler Command Line").
+Parsing file "C:\Users\liuxiaochang\Desktop\程序1\程序\双源定位\Location.m"
 	(Referenced from: "Compiler Command Line").
 Parsing file "C:\Users\liuxiaochang\Desktop\程序1\程序\去噪\W4Denoise.m"
 	(Referenced from: "Compiler Command Line").
@@ -22,4 +37,4 @@ Executing command: C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /nolo
 Creating the bundle...
 Web based installer created at G:\zhangjiantaoPro\matlab\zjtMatlab\for_redistribution\MyAppInstaller_web.exe.
 Packaging complete.
-Elapsed packaging time was: 1 minutes and 35 seconds.
+Elapsed packaging time was: 53 seconds.

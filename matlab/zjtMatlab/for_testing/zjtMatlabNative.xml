@@ -9,7 +9,13 @@
             The NoiseReduce class provides a CLS compliant, Object (native) interface to the
             MATLAB functions contained in the files:
             <newpara></newpara>
+            C:\Users\liuxiaochang\Desktop\程序1\程序\Direct.m
+            <newpara></newpara>
             C:\Users\liuxiaochang\Desktop\程序1\程序\去噪\DoubleDataExp.m
+            <newpara></newpara>
+            C:\Users\liuxiaochang\Desktop\程序1\程序\InputData.m
+            <newpara></newpara>
+            C:\Users\liuxiaochang\Desktop\程序1\程序\双源定位\Location.m
             <newpara></newpara>
             C:\Users\liuxiaochang\Desktop\程序1\程序\去噪\W4Denoise.m
             </summary>
@@ -42,6 +48,102 @@
             Internal dispose function
             </summary>
         </member>
+        <member name="M:zjtMatlabNative.NoiseReduce.Direct">
+             <summary>
+             Provides a single output, 0-input Objectinterface to the Direct MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             m=8;
+             </remarks>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:zjtMatlabNative.NoiseReduce.Direct(System.Object)">
+             <summary>
+             Provides a single output, 1-input Objectinterface to the Direct MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             m=8;
+             </remarks>
+             <param name="dataPath">Input argument #1</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:zjtMatlabNative.NoiseReduce.Direct(System.Object,System.Object)">
+             <summary>
+             Provides a single output, 2-input Objectinterface to the Direct MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             m=8;
+             </remarks>
+             <param name="dataPath">Input argument #1</param>
+             <param name="index">Input argument #2</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:zjtMatlabNative.NoiseReduce.Direct(System.Int32)">
+             <summary>
+             Provides the standard 0-input Object interface to the Direct MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             m=8;
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:zjtMatlabNative.NoiseReduce.Direct(System.Int32,System.Object)">
+             <summary>
+             Provides the standard 1-input Object interface to the Direct MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             m=8;
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="dataPath">Input argument #1</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:zjtMatlabNative.NoiseReduce.Direct(System.Int32,System.Object,System.Object)">
+             <summary>
+             Provides the standard 2-input Object interface to the Direct MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             m=8;
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="dataPath">Input argument #1</param>
+             <param name="index">Input argument #2</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:zjtMatlabNative.NoiseReduce.Direct(System.Int32,System.Object[]@,System.Object[],System.Object[])">
+             <summary>
+             Provides an interface for the Direct function in which the input and output
+             arguments are specified as an array of Objects.
+             </summary>
+             <remarks>
+             This method will allocate and return by reference the output argument
+             array.<newpara></newpara>
+             M-Documentation:
+             m=8;
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return</param>
+             <param name= "argsOut">Array of Object output arguments</param>
+             <param name= "argsIn">Array of Object input arguments</param>
+             <param name= "varArgsIn">Array of Object representing variable input
+             arguments</param>
+            
+        </member>
         <member name="M:zjtMatlabNative.NoiseReduce.DoubleDataExp">
              <summary>
              Provides a single output, 0-input Objectinterface to the DoubleDataExp MATLAB
@@ -64,6 +166,20 @@
              set(gcf,'Visible','off');
              </remarks>
              <param name="dataPath">Input argument #1</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:zjtMatlabNative.NoiseReduce.DoubleDataExp(System.Object,System.Object)">
+             <summary>
+             Provides a single output, 2-input Objectinterface to the DoubleDataExp MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             set(gcf,'Visible','off');
+             </remarks>
+             <param name="dataPath">Input argument #1</param>
+             <param name="index">Input argument #2</param>
              <returns>An Object containing the first output argument.</returns>
             
         </member>
@@ -96,6 +212,22 @@
              arguments.</returns>
             
         </member>
+        <member name="M:zjtMatlabNative.NoiseReduce.DoubleDataExp(System.Int32,System.Object,System.Object)">
+             <summary>
+             Provides the standard 2-input Object interface to the DoubleDataExp MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             set(gcf,'Visible','off');
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="dataPath">Input argument #1</param>
+             <param name="index">Input argument #2</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
         <member name="M:zjtMatlabNative.NoiseReduce.DoubleDataExp(System.Int32,System.Object[]@,System.Object[],System.Object[])">
              <summary>
              Provides an interface for the DoubleDataExp function in which the input and
@@ -107,6 +239,303 @@
              array.<newpara></newpara>
              M-Documentation:
              set(gcf,'Visible','off');
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return</param>
+             <param name= "argsOut">Array of Object output arguments</param>
+             <param name= "argsIn">Array of Object input arguments</param>
+             <param name= "varArgsIn">Array of Object representing variable input
+             arguments</param>
+            
+        </member>
+        <member name="M:zjtMatlabNative.NoiseReduce.InputData">
+             <summary>
+             Provides a void output, 0-input Objectinterface to the InputData MATLAB function.
+             </summary>
+             <remarks>
+             </remarks>
+            
+        </member>
+        <member name="M:zjtMatlabNative.NoiseReduce.InputData(System.Object)">
+             <summary>
+             Provides a void output, 1-input Objectinterface to the InputData MATLAB function.
+             </summary>
+             <remarks>
+             </remarks>
+             <param name="dataPath">Input argument #1</param>
+            
+        </member>
+        <member name="M:zjtMatlabNative.NoiseReduce.InputData(System.Object,System.Object)">
+             <summary>
+             Provides a void output, 2-input Objectinterface to the InputData MATLAB function.
+             </summary>
+             <remarks>
+             </remarks>
+             <param name="dataPath">Input argument #1</param>
+             <param name="index">Input argument #2</param>
+            
+        </member>
+        <member name="M:zjtMatlabNative.NoiseReduce.InputData(System.Int32)">
+             <summary>
+             Provides the standard 0-input Object interface to the InputData MATLAB function.
+             </summary>
+             <remarks>
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:zjtMatlabNative.NoiseReduce.InputData(System.Int32,System.Object)">
+             <summary>
+             Provides the standard 1-input Object interface to the InputData MATLAB function.
+             </summary>
+             <remarks>
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="dataPath">Input argument #1</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:zjtMatlabNative.NoiseReduce.InputData(System.Int32,System.Object,System.Object)">
+             <summary>
+             Provides the standard 2-input Object interface to the InputData MATLAB function.
+             </summary>
+             <remarks>
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="dataPath">Input argument #1</param>
+             <param name="index">Input argument #2</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:zjtMatlabNative.NoiseReduce.InputData(System.Int32,System.Object[]@,System.Object[],System.Object[])">
+             <summary>
+             Provides an interface for the InputData function in which the input and output
+             arguments are specified as an array of Objects.
+             </summary>
+             <remarks>
+             This method will allocate and return by reference the output argument
+             array.<newpara></newpara>
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return</param>
+             <param name= "argsOut">Array of Object output arguments</param>
+             <param name= "argsIn">Array of Object input arguments</param>
+             <param name= "varArgsIn">Array of Object representing variable input
+             arguments</param>
+            
+        </member>
+        <member name="M:zjtMatlabNative.NoiseReduce.Location">
+             <summary>
+             Provides a single output, 0-input Objectinterface to the Location MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             the_angle1=105.2;
+             phi_angle1=52.8;
+             the_angle2=58.7;
+             phi_angle2=67.8;
+             the_angle3=151.4;
+             phi_angle3=62.4;
+             </remarks>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:zjtMatlabNative.NoiseReduce.Location(System.Object)">
+             <summary>
+             Provides a single output, 1-input Objectinterface to the Location MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             the_angle1=105.2;
+             phi_angle1=52.8;
+             the_angle2=58.7;
+             phi_angle2=67.8;
+             the_angle3=151.4;
+             phi_angle3=62.4;
+             </remarks>
+             <param name="data">Input argument #1</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:zjtMatlabNative.NoiseReduce.Location(System.Object,System.Object)">
+             <summary>
+             Provides a single output, 2-input Objectinterface to the Location MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             the_angle1=105.2;
+             phi_angle1=52.8;
+             the_angle2=58.7;
+             phi_angle2=67.8;
+             the_angle3=151.4;
+             phi_angle3=62.4;
+             </remarks>
+             <param name="data">Input argument #1</param>
+             <param name="p1">Input argument #2</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:zjtMatlabNative.NoiseReduce.Location(System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 3-input Objectinterface to the Location MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             the_angle1=105.2;
+             phi_angle1=52.8;
+             the_angle2=58.7;
+             phi_angle2=67.8;
+             the_angle3=151.4;
+             phi_angle3=62.4;
+             </remarks>
+             <param name="data">Input argument #1</param>
+             <param name="p1">Input argument #2</param>
+             <param name="p2">Input argument #3</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:zjtMatlabNative.NoiseReduce.Location(System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 4-input Objectinterface to the Location MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             the_angle1=105.2;
+             phi_angle1=52.8;
+             the_angle2=58.7;
+             phi_angle2=67.8;
+             the_angle3=151.4;
+             phi_angle3=62.4;
+             </remarks>
+             <param name="data">Input argument #1</param>
+             <param name="p1">Input argument #2</param>
+             <param name="p2">Input argument #3</param>
+             <param name="p3">Input argument #4</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:zjtMatlabNative.NoiseReduce.Location(System.Int32)">
+             <summary>
+             Provides the standard 0-input Object interface to the Location MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             the_angle1=105.2;
+             phi_angle1=52.8;
+             the_angle2=58.7;
+             phi_angle2=67.8;
+             the_angle3=151.4;
+             phi_angle3=62.4;
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:zjtMatlabNative.NoiseReduce.Location(System.Int32,System.Object)">
+             <summary>
+             Provides the standard 1-input Object interface to the Location MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             the_angle1=105.2;
+             phi_angle1=52.8;
+             the_angle2=58.7;
+             phi_angle2=67.8;
+             the_angle3=151.4;
+             phi_angle3=62.4;
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="data">Input argument #1</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:zjtMatlabNative.NoiseReduce.Location(System.Int32,System.Object,System.Object)">
+             <summary>
+             Provides the standard 2-input Object interface to the Location MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             the_angle1=105.2;
+             phi_angle1=52.8;
+             the_angle2=58.7;
+             phi_angle2=67.8;
+             the_angle3=151.4;
+             phi_angle3=62.4;
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="data">Input argument #1</param>
+             <param name="p1">Input argument #2</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:zjtMatlabNative.NoiseReduce.Location(System.Int32,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 3-input Object interface to the Location MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             the_angle1=105.2;
+             phi_angle1=52.8;
+             the_angle2=58.7;
+             phi_angle2=67.8;
+             the_angle3=151.4;
+             phi_angle3=62.4;
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="data">Input argument #1</param>
+             <param name="p1">Input argument #2</param>
+             <param name="p2">Input argument #3</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:zjtMatlabNative.NoiseReduce.Location(System.Int32,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 4-input Object interface to the Location MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             the_angle1=105.2;
+             phi_angle1=52.8;
+             the_angle2=58.7;
+             phi_angle2=67.8;
+             the_angle3=151.4;
+             phi_angle3=62.4;
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="data">Input argument #1</param>
+             <param name="p1">Input argument #2</param>
+             <param name="p2">Input argument #3</param>
+             <param name="p3">Input argument #4</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:zjtMatlabNative.NoiseReduce.Location(System.Int32,System.Object[]@,System.Object[],System.Object[])">
+             <summary>
+             Provides an interface for the Location function in which the input and output
+             arguments are specified as an array of Objects.
+             </summary>
+             <remarks>
+             This method will allocate and return by reference the output argument
+             array.<newpara></newpara>
+             M-Documentation:
+             the_angle1=105.2;
+             phi_angle1=52.8;
+             the_angle2=58.7;
+             phi_angle2=67.8;
+             the_angle3=151.4;
+             phi_angle3=62.4;
              </remarks>
              <param name="numArgsOut">The number of output arguments to return</param>
              <param name= "argsOut">Array of Object output arguments</param>

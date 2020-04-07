@@ -5,26 +5,65 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:local="clr-namespace:ZhangJianTaoProj"
              d:DesignHeight="300"
              d:DesignWidth="300"
-             mc:Ignorable="d">
+             mc:Ignorable="d" Loaded="UserControl_Loaded">
     <UserControl.Resources>
+        <Style TargetType="{x:Type Grid}">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Margin" Value="5" />
+        </Style>
+        <Style TargetType="{x:Type Line}">
+            <Setter Property="Stroke" Value="DarkGray"></Setter>
+            <Setter Property="X1" Value="0"></Setter>
+            <Setter Property="Y1" Value="0"></Setter>
+            <Setter Property="X2" Value="20000"></Setter>
+            <Setter Property="Y2" Value="0"></Setter>
+            <Setter Property="StrokeThickness" Value="2"></Setter>
+        </Style>
         <Style TargetType="{x:Type Image}">
-            <Setter Property="MaxWidth" Value="{Binding ElementName=stackPanel,Path=MaxWidth,Mode=OneWay }" />
+            <!--<Setter Property="MaxWidth" Value="{Binding ElementName=stackPanel,Path=MaxWidth,Mode=OneWay }" />-->
+            <Setter Property="Margin" Value="5" />
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="Stretch" Value="Uniform" />
         </Style>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"  />
     </UserControl.Resources>
-    <StackPanel x:Name="stackPanel" Margin="10 10 10 0">
+    <StackPanel x:Name="stackPanel" Width="auto" Margin="10 10 10 0">
+        <TextBlock FontSize="40"  Text="数据去噪" Margin="0,8,0,0" ></TextBlock>
+        <Line></Line>
+        <local:TabShowPic x:Name="ShowPic"></local:TabShowPic>
+        <!--<TextBlock FontSize="20"  Text="A组结果（降噪前后）:" Margin="0,8,0,0" ></TextBlock>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="90px"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
-            <Button x:Name="openFile" Click="openFile_Click" Content="请选择数据文件" Grid.Column="0" Grid.Row="0"></Button>
-            <TextBlock x:Name="selectedFile" Grid.Column="1" Grid.Row="0" Text="文件尚未选择" Margin="20,0,0,0" ></TextBlock>
+            <Image x:Name="res11" Grid.Column="0" Grid.Row="0"  />
+            <Image x:Name="res12" Grid.Column="1" Grid.Row="0"  />
         </Grid>
-        <Image x:Name="res1"  />
-        <Image x:Name="res2"  />
+        <Line></Line>
+        <TextBlock FontSize="20"  Text="B组结果（降噪前后）:" Margin="0,8,0,0" ></TextBlock>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Image x:Name="res21" Grid.Column="0" Grid.Row="0"  />
+            <Image x:Name="res22" Grid.Column="1" Grid.Row="0"  />
+        </Grid>
+        <Line></Line>
+        <TextBlock FontSize="20"  Text="C组结果（降噪前后）:" Margin="0,8,0,0" ></TextBlock>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Image x:Name="res31" Grid.Column="0" Grid.Row="0"  />
+            <Image x:Name="res32" Grid.Column="1" Grid.Row="0"  />
+        </Grid>
+
+        <Line></Line>-->
     </StackPanel>
 </UserControl>

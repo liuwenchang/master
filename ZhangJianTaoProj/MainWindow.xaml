@@ -13,8 +13,9 @@
         ShowIconOnTitleBar="False"
         ShowTitleBar="{Binding ShowMyTitleBar, Mode=OneWay}"
         WindowStartupLocation="CenterScreen"
+        MinWidth="800" MinHeight="600"
         Title="" Height="600" Width="800" Closing="MetroWindow_Closing" Loaded="MetroWindow_Loaded" >
-    <Controls:MetroWindow.RightWindowCommands>
+    <Controls:MetroWindow.LeftWindowCommands>
         <Controls:WindowCommands>
             <Button>
                 <StackPanel Orientation="Horizontal">
@@ -31,7 +32,7 @@
                 </StackPanel>
             </Button>
         </Controls:WindowCommands>
-    </Controls:MetroWindow.RightWindowCommands>
+    </Controls:MetroWindow.LeftWindowCommands>
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -76,7 +77,6 @@
             </ObjectDataProvider>
 
             <materialDesignConverters:BrushRoundConverter x:Key="BrushRoundConverter" />
-
             <Style x:Key="HamburgerMenuCreatorsItemStyle"
                    BasedOn="{StaticResource HamburgerMenuItemStyle}"
                    TargetType="{x:Type ListBoxItem}">
@@ -185,8 +185,12 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Border Grid.Column="0"
-                Margin="0,-30,0,0"
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Border Grid.Column="0" Grid.Row="0"
+                Margin="0,0,0,0"
                 BorderBrush="{DynamicResource GrayBrush7}"
                 BorderThickness="0">
 
@@ -219,29 +223,29 @@
                         </Controls:HamburgerMenuIconItem>
                         <Controls:HamburgerMenuIconItem Icon="{iconPacks:Material Kind=DatabasePlus}" Label="数据导入">
                             <Controls:HamburgerMenuIconItem.Tag>
-                                <local:PrivateView />
+                                <local:InputData x:Name="InputDataControl" />
                             </Controls:HamburgerMenuIconItem.Tag>
                         </Controls:HamburgerMenuIconItem>
-                        <Controls:HamburgerMenuIconItem Icon="{iconPacks:Material Kind=Eraser}" Label="数据去噪">
+                        <Controls:HamburgerMenuIconItem x:Name="JiangZaoView"  Icon="{iconPacks:Material Kind=Eraser}" Label="数据去噪">
                             <Controls:HamburgerMenuIconItem.Tag>
                                 <local:JiangZao />
                             </Controls:HamburgerMenuIconItem.Tag>
                         </Controls:HamburgerMenuIconItem>
-                        <Controls:HamburgerMenuIconItem Icon="{iconPacks:FontAwesome Kind=CompassRegular}" Label="测向">
+                        <Controls:HamburgerMenuIconItem x:Name="CeXiangView" Icon="{iconPacks:FontAwesome Kind=CompassRegular}" Label="测向">
                             <Controls:HamburgerMenuIconItem.Tag>
-                                <local:SettingsView />
+                                <local:Direct />
                             </Controls:HamburgerMenuIconItem.Tag>
                         </Controls:HamburgerMenuIconItem>
-                        <Controls:HamburgerMenuIconItem Icon="{iconPacks:Material Kind=CrosshairsGps}" Label="三维定位">
+                        <Controls:HamburgerMenuIconItem x:Name="DingWeiView"  Icon="{iconPacks:Material Kind=CrosshairsGps}" Label="三维定位">
                             <Controls:HamburgerMenuIconItem.Tag>
-                                <local:PrivateView />
+                                <local:Location />
                             </Controls:HamburgerMenuIconItem.Tag>
                         </Controls:HamburgerMenuIconItem>
-                        <Controls:HamburgerMenuIconItem Icon="{iconPacks:Material Kind=File}" Label="数据保存">
+                        <!--<Controls:HamburgerMenuIconItem Icon="{iconPacks:Material Kind=File}" Label="数据保存">
                             <Controls:HamburgerMenuIconItem.Tag>
                                 <local:HomeView />
                             </Controls:HamburgerMenuIconItem.Tag>
-                        </Controls:HamburgerMenuIconItem>
+                        </Controls:HamburgerMenuIconItem>-->
                     </Controls:HamburgerMenuItemCollection>
                 </Controls:HamburgerMenu.ItemsSource>
 
@@ -252,17 +256,20 @@
                         </Controls:HamburgerMenuIconItem>
                     </Controls:HamburgerMenuItemCollection>
                 </Controls:HamburgerMenu.OptionsItemsSource>
-                
-                
+
+
                 <Controls:HamburgerMenu.ContentTemplate>
                     <DataTemplate DataType="{x:Type Controls:HamburgerMenuIconItem}">
                         <Grid Margin="0 30 0 0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
-                            <ScrollViewer Grid.Row="1" Margin="20,0,0,0"
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <ScrollViewer Grid.Row="0" Grid.Column="0" Margin="0,0,0,0"
                                           Focusable="False"
-                                          HorizontalAlignment="Center"
+                                          HorizontalAlignment="Left"
                                           HorizontalScrollBarVisibility="Disabled"
                                           VerticalScrollBarVisibility="Auto">
                                 <ContentControl Content="{Binding Tag}" Focusable="False" />
@@ -274,5 +281,9 @@
             </Controls:HamburgerMenu>
 
         </Border>
+        <StatusBar Width="20000" Grid.Column="0" Grid.Row="1">
+            <StatusBarItem Width="20000" >Email:zjt_ncepu@126.com</StatusBarItem>
+            <Separator Style="{StaticResource MetroStatusBarSeparator}" />
+        </StatusBar>
     </Grid>
 </Controls:MetroWindow>

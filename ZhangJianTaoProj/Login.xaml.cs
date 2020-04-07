@@ -24,5 +24,33 @@ namespace ZhangJianTaoProj
         {
             InitializeComponent();
         }
+
+        private void BtnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            login();
+        }
+        private void login()
+        {
+            if (Id.Text == "admin" && Password.Password == "admin")
+            {
+                MainWindow window = new MainWindow();
+                window.Show();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("账号或者密码错误");
+            }
+        }
+
+        private void BtnCancle_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+        private void BtnLogin_Click(object sender, ExecutedRoutedEventArgs e)
+        {
+            login();
+
+        }
     }
 }

@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="ZhangJianTaoProj.TabShowPic"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             d:DesignHeight="600"
+             d:DesignWidth="600"
+             Background="White"
+             mc:Ignorable="d" >
+    <UserControl.Resources>
+
+        <Style TargetType="{x:Type Image}">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <!--<Setter Property="Height" Value="450"></Setter>-->
+            <Setter Property="MaxWidth" Value="500"></Setter>
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Stretch" Value="Uniform" />
+        </Style>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"  />
+    </UserControl.Resources>
+    <StackPanel>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto">
+        <Controls:MetroAnimatedTabControl Height="auto"
+                                                      Controls:TabControlHelper.Underlined="TabItems"
+                                                      TabStripPlacement="Top">
+            <TabItem Header="A组     ">
+                <Grid HorizontalAlignment="Left">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Image x:Name="A1" Grid.Column="0" ></Image>
+                    <Image x:Name="A2" Grid.Column="1" ></Image>
+                </Grid>
+            </TabItem>
+            <Controls:MetroTabItem Header="B组   ">
+                <Grid HorizontalAlignment="Left">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Image x:Name="B1" Grid.Column="0" ></Image>
+                    <Image x:Name="B2" Grid.Column="1" ></Image>
+                </Grid>
+            </Controls:MetroTabItem>
+            <Controls:MetroTabItem Header="C组   ">
+                <Grid HorizontalAlignment="Left">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Image x:Name="C1" Grid.Column="0" ></Image>
+                    <Image x:Name="C2" Grid.Column="1" ></Image>
+                </Grid>
+            </Controls:MetroTabItem>
+        </Controls:MetroAnimatedTabControl>
+        </ScrollViewer>
+    </StackPanel>
+</UserControl>
+

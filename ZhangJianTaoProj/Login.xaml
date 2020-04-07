@@ -8,9 +8,73 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:materialDesignConverters="clr-namespace:MaterialDesignThemes.Wpf.Converters;assembly=MaterialDesignThemes.Wpf"
         xmlns:local="clr-namespace:ZhangJianTaoProj"
+        WindowStyle="None"
+        ShowTitleBar="False"
         mc:Ignorable="d"
-        Title="" Height="600" Width="800" >
-    <Grid>
-
+        ResizeMode="NoResize"
+        Title="" Height="440" Width="1200" >
+    <Window.Background>
+        <ImageBrush Opacity="0.5" ImageSource="Resources/Img/login.png"/>
+    </Window.Background>
+    <Window.Resources>
+        <RoutedUICommand x:Key="LoginKey" Text="login" />
+        <Thickness x:Key="ColumnMargin">10 5 10 5</Thickness>
+        <Thickness x:Key="ControlMargin">0 0 0 20</Thickness>
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource LoginKey}"
+                    Executed="BtnLogin_Click"/>
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Key="Return" Command="{StaticResource LoginKey}"/>
+    </Window.InputBindings>
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock  TextAlignment="Center" FontSize="30" Grid.Column="0" Grid.Row="0" Margin="0,8,10,20">账号</TextBlock>
+        <TextBox x:Name="Id" FontSize="30" Margin="{StaticResource ControlMargin}" Grid.Column="1" Grid.Row="0" Controls:TextBoxHelper.ButtonCommand="{Binding TextBoxButtonCmd, Mode=OneWay}"
+                         ContextMenu="{x:Null}"
+                         Text="">
+            <TextBox.Style>
+                <Style BasedOn="{StaticResource MetroTextBox}" TargetType="{x:Type TextBox}">
+                    <Setter Property="Controls:TextBoxHelper.ClearTextButton" Value="True" />
+                    <Style.Triggers>
+                        <Trigger Property="Controls:TextBoxHelper.HasText" Value="False">
+                            <Setter Property="Controls:TextBoxHelper.ClearTextButton" Value="False" />
+                            <Setter Property="Controls:TextBoxHelper.Watermark" Value="账号..." />
+                        </Trigger>
+                        <Trigger Property="Controls:TextBoxHelper.HasText" Value="True">
+                            <Setter Property="Controls:TextBoxHelper.ClearTextButton" Value="True" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+        <!--<TextBox FontSize="40" x:Name="Id" Grid.Column="1" Grid.Row="0" Margin="0,0,0,20"></TextBox>-->
+        <TextBlock TextAlignment="Center"  FontSize="30" Grid.Column="0" Grid.Row="1" Margin="0,8,10,0">密码</TextBlock>
+        <PasswordBox x:Name="Password" FontSize="30" Grid.Column="1" Grid.Row="1" Margin="{StaticResource ControlMargin}"
+                             Controls:TextBoxHelper.UseFloatingWatermark="False"
+                             Controls:TextBoxHelper.Watermark="密码..."
+                             Password=""
+                             Style="{StaticResource Win8MetroPasswordBox}" />
+        <!--<TextBox FontSize="40" x:Name="Password" Grid.Column="1" Grid.Row="1"></TextBox>-->
+        <Grid Grid.Column="1" Grid.Row="2" Margin="0,20,0,0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="130" />
+                <ColumnDefinition Width="130"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50px" />
+            </Grid.RowDefinitions>
+            <Button x:Name="BtnLogin"  Style="{DynamicResource AccentedSquareButtonStyle}" Grid.Column="0" FontSize="30" Margin="0,0,20,0" Grid.Row="0" Click="BtnLogin_Click" FontFamily="Microsoft YaHei"  FontWeight="Normal" Content="登录" Controls:ControlsHelper.ContentCharacterCasing="Normal" />
+            <Button x:Name="BtnCancle" Grid.Column="1" FontSize="30" Margin="20,0,0,0" Click="BtnCancle_Click" Grid.Row="0" Style="{DynamicResource AccentedSquareButtonStyle}" FontFamily="Microsoft YaHei"  FontWeight="Normal" Controls:ControlsHelper.ContentCharacterCasing="Normal">取消</Button>
+        </Grid>
     </Grid>
 </Controls:MetroWindow>
